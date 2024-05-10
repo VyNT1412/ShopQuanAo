@@ -1,0 +1,30 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <header>
+                <h1 class="my-4">Lịch sử mua hàng</h1>
+            </header>
+            <div class="purchase-history">
+                <h2>Danh sách đơn hàng</h2>
+                <ul>
+                    {% for hoa_don in danh_sach_don_hang %}
+                    <li>
+                        <h3>Đơn hàng #{{ hoa_don.id }}</h3>
+                        <p>Ngày đặt hàng: {{ hoa_don.ngay_ban }}</p>
+                        <p>Tổng số tiền: {{ "{:,.0f}".format(hoa_don.tongtien) }} VND</p>
+                        <ul>
+                            {% for chi_tiet in hoa_don.chi_tiet %}
+                            <li>{{ chi_tiet.hangs.ten_hang }} - Số lượng: {{ chi_tiet.so_luong_hang }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

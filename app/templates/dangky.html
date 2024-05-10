@@ -1,0 +1,74 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<!-- Template dangky.html -->
+
+<section>
+<div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">ĐĂNG KÝ TÀI KHOẢN</h2>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="alert alert-danger">
+                             <ul>
+                                {% for message in messages %}
+                                    <li>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                {% endwith %}
+              <form method="post" action="{{ url_for('khachang_dangky')}}">
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" for="tenkh">Họ tên</label>
+                  <input type="text" id="tenkh" class="form-control form-control-lg" name="tenkh" required/>
+                </div>
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" for="tendangnhap">Tên đăng nhập</label>
+                  <input type="text" id="tendangnhap" class="form-control form-control-lg" name ='tendangnhap' required/>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" for="mk">Mật khẩu</label>
+                  <input type="password" id="mk" class="form-control form-control-lg" name = 'mk' required/>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" for="xacnhanmk">Xác nhận mật khẩu</label>
+                  <input type="password" id="xacnhanmk" class="form-control form-control-lg" name = 'xacnhanmk' required/>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" for="diachi">Địa chỉ</label>
+                  <input type="text" id="diachi" class="form-control form-control-lg" name="diachi" required/>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" for="sdt">Số điện thoại</label>
+                  <input type="text" id="sdt" class="form-control form-control-lg" name="sdt" required/>
+                </div>
+                <div class="form-check d-flex justify-content-center mb-5">
+                  <input class="form-check-input me-2" type="checkbox" value="" id="dongydk" required/>
+                  <label class="form-check-label" for="dongydk">
+                    Tôi đồng ý với các chính sách điều khoản
+                  </label>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <input type="submit" value="Đăng ký" class="btn btn-warning btn-lg text-white">
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Bạn đã có tài khoản? <a href="{{ url_for('dang_nhap')}}"
+                    class="fw-bold no-decoration"><u>Đăng nhập</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

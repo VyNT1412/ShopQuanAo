@@ -1,0 +1,54 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<section>
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+                            <h2 class="text-uppercase text-center mb-5">ĐỔI MẬT KHẨU</h2>
+                            {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                            <div class="alert alert-danger">
+                                <ul>
+                                    {% for message in messages %}
+                                    <li>{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                            {% endwith %}
+                            <form method="post" action="{{ url_for('doi_mk')}}">
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <label class="form-label" for="oldpassword">Mật khẩu cũ</label>
+                                    <input type="password" id="oldpassword" class="form-control form-control-lg"
+                                           name='oldpassword' required/>
+                                </div>
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <label class="form-label" for="newpassword">Mật khẩu mới</label>
+                                    <input type="password" id="newpassword" class="form-control form-control-lg"
+                                           name='newpassword' required/>
+                                </div>
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <label class="form-label" for="confpassword">Xác nhận mật khẩu</label>
+                                    <input type="password" id="confpassword" class="form-control form-control-lg"
+                                           name='confpassword' required/>
+                                </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <input type="submit" value="Đổi mật khẩu" class="btn btn-warning btn-lg text-white">
+                                </div>
+
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

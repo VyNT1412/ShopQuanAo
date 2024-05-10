@@ -1,0 +1,91 @@
+* {
+    font-family: Tahoma;
+}
+
+h1.subject {
+    text-align: center;
+}
+
+body {
+
+    background-color: lightblue; /* Màu nền */
+    color: darkblue; /* Màu chữ */
+}
+
+.custom-background {
+    background-image: url('https://img6.thuthuatphanmem.vn/uploads/2022/04/19/background-quan-ao-hien-dai-cuc-dep_044601171.jpg');
+    background-size: cover;
+    background-position: center;
+    font-size: 25px;
+    text-align: center;
+    color: hotpink;
+}
+
+#error-message {
+    display: none;
+}
+
+/* Thêm kiểu dáng cho nút "Đóng" */
+.close {
+    cursor: pointer;
+    color: #000;
+    font-size: 20px;
+}
+
+/* chỉnh chữ link form đăng nhập, đăng ký */
+.no-decoration {
+    text-decoration: none; /* Loại bỏ gạch chân dưới */
+    color: cornflowerblue; /* Giữ màu chữ mặc định (thừa kế từ phần tử cha) */
+}
+.product {
+    display: flex; /* Sử dụng flexbox */
+}
+
+.img-container {
+    flex: 1; /* Chia ngang phần bằng nhau */
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.img {
+    max-width: 350px;
+    height: auto;
+}
+
+.product-details {
+    flex: 1; /* Chia ngang phần bằng nhau */
+    margin-left: 20px; /* Tạo khoảng cách giữa hình ảnh và thông tin sản phẩm */
+}
+.product button
+{
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.product button:hover {
+    background-color: #0056b3;
+}
+
+.comment {
+    margin-bottom: 20px; /* Khoảng cách giữa các bình luận */
+}
+
+
+.comment p {
+    margin-bottom: 5px; /* Khoảng cách giữa các dòng trong bình luận */
+}
+
+.comment span {
+    font-weight: bold; /* làm nổi bật tên người dùng */
+}
+
+
+.comment_sp{
+    margin-left: 20px; margin-right: 20px;
+}

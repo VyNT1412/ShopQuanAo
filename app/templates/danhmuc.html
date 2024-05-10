@@ -1,0 +1,14 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+ <div class="container mt-3">
+  <h2>DANH MỤC SẢN PHẨM</h2>
+     {% for p in danhmuchang %}
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      {{ p.ten_hang }}
+      <span class="badge bg-primary rounded-pill"> {{ p.sanpham_count }}</span>
+    </li>
+  </ul>
+     {% endfor %}
+</div>
+{% endblock %}

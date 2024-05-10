@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-sm bg-danger navbar-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link {% if active_page == 'home' %}active{% endif %}" href="/">GIỚI THIỆU</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if active_page == 'products' %}active{% endif %}" href="/sanpham">TRANG
+                        CHỦ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if active_page == 'categories' %}active{% endif %}" href="/danhmuc">DANH MỤC
+                        HÀNG</a>
+                </li>
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('gio_hang') }}">GIỎ HÀNG
+                        <span class="badge badge-secondary cart_counter">{{ cart_stats.total_quantity }}</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ url_for('lich_su_mua_hang') }}">LỊCH SỬ MUA HÀNG</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ url_for('dang_xuat')}}">ĐĂNG XUẤT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ url_for('info_user')}}">
+                        {{ current_user.username }}
+                    </a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link {% if active_page == 'login' %}active{% endif %}" href="/dangnhap">ĐĂNG NHẬP</a>
+                </li>
+                {% endif %}
+            </ul>
+            <!-- Form tìm kiếm -->
+            <form class="d-flex" action="/sanpham">
+                <input class="form-control me-2" name="keywords" type="text" placeholder="Nhập tên sản phẩm">
+                <button class="btn btn-primary" type="submit" style="background-color: #FF9900; border-color: #FF9900; color: #ffffff;">Tìm Kiếm</button>
+            </form>
+        </div>
+    </div>
+</nav>
